@@ -1,5 +1,5 @@
 {
-  "name": "vue-template-compiler",
+  "name": "vusion-vue-template-compiler",
   "version": "2.5.3",
   "description": "template compiler for Vue 2.0",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "vue",
     "compiler"
   ],
-  "author": "Evan You",
+  "author": "Forrest R. Zhao",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vuejs/vue/issues"

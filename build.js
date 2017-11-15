@@ -4129,7 +4129,7 @@ var createCompiler = createCompilerCreator(function baseCompile (
   options
 ) {
   var ast = parse(template.trim(), options);
-  optimize(ast, options);
+  // optimize(ast, options);
   var code = generate(ast, options);
   return {
     ast: ast,
@@ -4141,6 +4141,7 @@ var createCompiler = createCompilerCreator(function baseCompile (
 /*  */
 
 var ref = createCompiler(baseOptions);
+ref.generate = generate;
 var compile = ref.compile;
 var compileToFunctions = ref.compileToFunctions;
 
@@ -4673,7 +4674,7 @@ var createCompiler$1 = createCompilerCreator(function baseCompile (
   options
 ) {
   var ast = parse(template.trim(), options);
-  optimize$1(ast, options);
+  // optimize$1(ast, options);
   var code = generate$1(ast, options);
   return {
     ast: ast,
@@ -4685,6 +4686,7 @@ var createCompiler$1 = createCompilerCreator(function baseCompile (
 /*  */
 
 var ref$1 = createCompiler$1(baseOptions);
+ref$1.generate = generate$1;
 var compile$1 = ref$1.compile;
 var compileToFunctions$1 = ref$1.compileToFunctions;
 
