@@ -4141,6 +4141,7 @@ var createCompiler = createCompilerCreator(function baseCompile (
 /*  */
 
 var ref = createCompiler(baseOptions);
+ref.parse = parse;
 ref.generate = generate;
 var compile = ref.compile;
 var compileToFunctions = ref.compileToFunctions;
@@ -4686,6 +4687,7 @@ var createCompiler$1 = createCompilerCreator(function baseCompile (
 /*  */
 
 var ref$1 = createCompiler$1(baseOptions);
+ref$1.parse = parse;
 ref$1.generate = generate$1;
 var compile$1 = ref$1.compile;
 var compileToFunctions$1 = ref$1.compileToFunctions;
@@ -4694,6 +4696,9 @@ var compileToFunctions$1 = ref$1.compileToFunctions;
 
 exports.parseComponent = parseComponent;
 exports.compile = compile;
+exports.parse = parse;
+exports.generate = generate;
+exports.ssrGenerate = generate$1;
 exports.compileToFunctions = compileToFunctions;
 exports.ssrCompile = compile$1;
 exports.ssrCompileToFunctions = compileToFunctions$1;
