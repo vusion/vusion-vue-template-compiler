@@ -3981,6 +3981,52 @@ function createFunction (code, errors) {
   }
 }
 
+
+function createParse(baseOptions) {
+  return function (template, options) {
+    var finalOptions = Object.create(baseOptions);
+    
+    if (options) {
+      // merge custom modules
+      if (options.modules) {
+        finalOptions.modules =
+          (baseOptions.modules || []).concat(options.modules);
+      }
+    }
+    // copy other options
+    for (var key in options) {
+      if (key !== 'modules') {
+        finalOptions[key] = options[key];
+      }
+    }
+    return parse(template, finalOptions);
+  }
+}
+
+function createGenerate(baseOptions) {
+  return function (code, options) {
+    var finalOptions = Object.create(baseOptions);
+
+    if (options) {
+      // merge custom modules
+      if (options.modules) {
+        finalOptions.modules =
+          (baseOptions.modules || []).concat(options.modules);
+      }
+    }
+    // copy other options
+    for (var key in options) {
+      if (key !== 'modules') {
+        finalOptions[key] = options[key];
+      }
+    }
+    return generate(code, finalOptions);
+  }
+}
+
+var myParse = createParse(baseOptions);
+var myGenerate = createGenerate(baseOptions);
+
 function createCompileToFunctionFn (compile) {
   var cache = Object.create(null);
 
@@ -4696,8 +4742,8 @@ var compileToFunctions$1 = ref$1.compileToFunctions;
 
 exports.parseComponent = parseComponent;
 exports.compile = compile;
-exports.parse = parse;
-exports.generate = generate;
+exports.parse = myParse;
+exports.generate = myGenerate;
 exports.ssrGenerate = generate$1;
 exports.compileToFunctions = compileToFunctions;
 exports.ssrCompile = compile$1;
